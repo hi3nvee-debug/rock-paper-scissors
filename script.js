@@ -30,46 +30,31 @@ return lowerCaseChoice;
 
 function playRound (humanChoice, computerChoice){
     if (humanChoice === computerChoice){
-
-    } else if (humanChoice === "rock" && computerChoice === "scissors"){
-    
-        humanScore += 1;
-
-    } else if (humanChoice === "rock" && computerChoice === "paper"){
-    
-        computerScore += 1;
-
-    } else if (humanChoice === "scissors" && computerChoice === "paper"){
-    
-        humanScore += 1;
-
-    } else if (humanChoice === "scissors" && computerChoice === "rock"){
-   
-        computerScore += 1;
-
-    } else if (humanChoice === "paper" && computerChoice === "rock"){
+        alert("Tie!");
         
-        humanScore += 1;
+    } else if ((humanChoice === "rock" && computerChoice === "scissors") 
+                || (humanChoice === "scissors" && computerChoice === "paper")
+                || (humanChoice === "paper" && computerChoice === "rock")){
+        
+            humanScore += 1;
 
-    } else if (humanChoice === "paper" && computerChoice === "scissors"){
-
+    } else if ((humanChoice === "rock" && computerChoice === "paper")
+                || (humanChoice === "scissors" && computerChoice === "rock")
+                || (humanChoice === "paper" && computerChoice === "scissors")){
+    
         computerScore += 1;
-    }
 
+    } 
+    
     const winner = document.createElement("p")
 
-if(humanScore === 5){
-
-    winner.textContent = "You win!";
-    scoreCount.appendChild(winner);
-
-
-} else if (computerScore === 5){
-
-    winner.textContent = "Computer wins!";
-    scoreCount.appendChild(winner);
-
-}
+    if(humanScore === 5){
+        winner.textContent = "You win!";
+        scoreCount.appendChild(winner);
+    } else if (computerScore === 5){
+        winner.textContent = "Computer wins!";
+        scoreCount.appendChild(winner);
+    }
 
 }
 
